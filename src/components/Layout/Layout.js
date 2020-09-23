@@ -1,16 +1,18 @@
-import React, { Component } from "react";
-import { Container } from "reactstrap";
-import NavBar from "./NavBar";
-import "./Layout.css";
+import React, { Component } from 'react';
+import { Container } from 'reactstrap';
+import NavBar from './NavBar';
+import './Layout.css';
 
 export class Layout extends Component {
   static displayName = Layout.name;
 
-  render() {
+  render () {
     return (
-      <div>
-        <NavBar />
-        <Container>{this.props.children}</Container>
+        <div>
+            <NavBar />
+            <Container>
+                {this.props.children}
+            </Container>
       </div>
     );
   }
