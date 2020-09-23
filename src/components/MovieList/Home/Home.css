@@ -1,9 +1,23 @@
-﻿.movies__container{
-    margin-top:2rem;
-    display:flex;
-    flex-wrap:wrap;
-    flex-direction:row;
-    justify-content:space-between;
+﻿.movies__container {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
+.page-item {
+  margin-top: 1rem;
+  margin-right: 1.5rem;
+}
 
+.page-link {
+  background: black !important;
+  color: white;
+  border: none;
+}
+
+.page-item.active > a {
+  color: #ffa801 !important;
+  border: 1px solid white !important;
+}
