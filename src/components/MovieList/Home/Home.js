@@ -16,31 +16,15 @@ export class Home extends React.Component {
     isLoadingGenre: true,
     page: 1,
     totalPages: "",
-    backgroundImage: ""
+    backgroundImage: "",
+    movieToSearch: this.props.match.params.movieToSearch
   };
 
   fetchMovies = (filter, page) => {
     const apiKey = this.state.apiKey;
-    //exemple:https://api.themoviedb.org/3/movie/popular?api_key=44410dd0833b353ce85b8a594a2ec589&language=en-US&page=1
-    fetch(
-      "https://api.themoviedb.org/3/movie/" +
-        filter +
-        "?api_key=" +
-        apiKey +
-        "&page=" +
-        (page ? page : "1")
-    )
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        this.setState({
-          movieList: data,
-          totalPages: data.total_pages,
-          isLoadingMovie: false,
-          backgroundImage: data.results[0].backdrop_path
-        });
-      });
-
+    this.state.isLoadingMovie = true;
+    this.state.isLoadingGenre = true;
+    //fetch movie genres
     fetch(
       "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
         apiKey +
@@ -53,6 +37,47 @@ export class Home extends React.Component {
           isLoadingGenre: false
         });
       });
+    //fetch all movies
+    if (this.state.movieToSearch === undefined) {
+      fetch(
+        "https://api.themoviedb.org/3/movie/" +
+          filter +
+          "?api_key=" +
+          apiKey +
+          "&page=" +
+          (page ? page : "1")
+      )
+        .then(response => response.json())
+        .then(data => {
+          this.setState({
+            movieList: data,
+            totalPages: data.total_pages,
+            isLoadingMovie: false,
+            backgroundImage: data.results[0].backdrop_path
+          });
+        });
+    }
+    //fetch movies by name
+    else {
+      fetch(
+        "https://api.themoviedb.org/3/search/movie?api_key=" +
+          apiKey +
+          "&language=en-US&query=" +
+          this.state.movieToSearch +
+          "&page=" +
+          (page ? page : "1") +
+          "&include_adult=false"
+      )
+        .then(response => response.json())
+        .then(data => {
+          this.setState({
+            movieList: data,
+            totalPages: data.total_pages,
+            isLoadingMovie: false,
+            backgroundImage: ""
+          });
+        });
+    }
   };
 
   callbackFilter = filter => {
@@ -74,6 +99,11 @@ export class Home extends React.Component {
     this.setState({ page: event });
     this.fetchMovies(this.state.filter ? this.state.filter : "popular", event);
   };
+
+  componentWillReceiveProps(props) {
+    this.setState({ movieToSearch: props.match.params.movieToSearch });
+    this.fetchMovies(this.state.filter, this.state.page);
+  }
 
   render() {
     document.body.style.background = " background-color: #000000";
@@ -115,7 +145,6 @@ export class Home extends React.Component {
             callbackFilter: this.callbackFilter
           }}
         />
-
         <div className="movies__container">{movies}</div>
         <Pagination
           totalPages={parseInt(this.state.totalPages, 10)}

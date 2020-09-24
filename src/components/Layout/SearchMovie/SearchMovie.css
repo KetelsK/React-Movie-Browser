@@ -1,0 +1,20 @@
+.SearchIcon {
+  color: blue;
+}
+.has-search .form-control {
+  padding-right: 2.5rem;
+}
+
+.form-group {
+  position: relative;
+}
+.form-control-feedback {
+  position: absolute;
+  right: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
