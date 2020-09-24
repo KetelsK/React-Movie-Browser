@@ -145,7 +145,9 @@ export class Home extends React.Component {
             callbackFilter: this.callbackFilter
           }}
         />
-        <div className="movies__container">{movies}</div>
+        <div className="movies__container justify-content-md-between justify-content-center">
+          {movies}
+        </div>
         <Pagination
           totalPages={parseInt(this.state.totalPages, 10)}
           currentPage={this.state.page}

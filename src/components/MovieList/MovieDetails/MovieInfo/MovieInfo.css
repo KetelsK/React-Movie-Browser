@@ -41,3 +41,18 @@
   background: black;
   padding: 4px 8px;
 }
+
+@media screen and (max-width: 768px) {
+  .movie-details-img > img {
+    width: 200px !important;
+  }
+  .movie-details__topcontainer {
+    flex-direction: column !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .movie-details__topcontainer {
+    flex-direction: column !important;
+  }
+}

@@ -31,3 +31,23 @@
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
+
+@media screen and (max-width: 576px) {
+  .movie-credits__actors__container {
+    justify-content: center !important;
+  }
+
+  .actor {
+    margin-right: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .movie-credits__actors__container {
+    justify-content: center !important;
+  }
+
+  .actor {
+    margin-right: 1.5rem;
+  }
+}

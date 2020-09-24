@@ -17,7 +17,7 @@ function MovieCard(props) {
   return (
     <div id={id} className="moviecard__container" onClick={showDetails}>
       {props.imgSrc ? (
-        <img alt="" src={`https://image.tmdb.org/t/p/w200/${props.imgSrc}`} />
+        <img alt="" src={`https://image.tmdb.org/t/p/w300/${props.imgSrc}`} />
       ) : (
         <img className="noimage" alt="" src={noimage} />
       )}

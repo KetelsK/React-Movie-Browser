@@ -18,3 +18,10 @@
   pointer-events: none;
   color: #aaa;
 }
+
+@media screen and (max-width: 760px) {
+  .form-group {
+    margin-bottom: 1rem !important;
+    margin-left: 2px !important;
+  }
+}

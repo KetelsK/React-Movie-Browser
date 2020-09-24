@@ -5,12 +5,13 @@ function MovieInfo(props) {
   return (
     <div>
       <div className="d-flex flex-row movie-details__topcontainer">
-        <div>
+        <div className="movie-details-img">
           <img
             src={`https://image.tmdb.org/t/p/w300${props.poster_path}`}
             alt=""
           />
         </div>
+
         <div className="d-flex flex-column title-overview-container">
           <h1>{props.title}</h1>
           <p className="movie-details__overview">{props.overview}</p>
