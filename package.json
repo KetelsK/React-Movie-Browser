@@ -20,7 +20,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.3",
     "reactstrap": "^8.6.0",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "serve": "^11.3.2"
   },
   "devDependencies": {
     "ajv": "^6.9.1",
