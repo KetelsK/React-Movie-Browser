@@ -1,6 +1,7 @@
 ﻿import React from "react";
 import "./MovieCard.css";
 import { useHistory } from "react-router-dom";
+import noimage from "../MovieDetails/MovieCredits/noimage.png";
 
 function MovieCard(props) {
   let history = useHistory();
@@ -15,7 +16,11 @@ function MovieCard(props) {
   const id = props.id;
   return (
     <div id={id} className="moviecard__container" onClick={showDetails}>
-      <img src={`https://image.tmdb.org/t/p/w200/${props.imgSrc}`} alt="" />
+      {props.imgSrc ? (
+        <img alt="" src={`https://image.tmdb.org/t/p/w200/${props.imgSrc}`} />
+      ) : (
+        <img className="noimage" alt="" src={noimage} />
+      )}
       <div className="moviecard__container__info">
         <h3>{props.title}</h3>
         <label className="moviecard__note">{props.note}</label>

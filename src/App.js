@@ -11,6 +11,7 @@ export default class App extends Component {
       <BrowserRouter>
         <Layout>
           <Route exact path="/" component={Home} />
+          <Route exact path="/search/:movieToSearch" component={Home} />
           <Route exact path="/moviedetails/:id" component={MovieDetails} />
         </Layout>
       </BrowserRouter>
