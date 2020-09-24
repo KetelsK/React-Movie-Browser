@@ -1,35 +1,40 @@
 ﻿.moviecard__container {
-    width: 200px;
-    margin-bottom: 1.5rem;
-    background: black;
-    cursor:pointer;
-    transition: transform 0.2s;
+  width: 200px;
+  margin-bottom: 1.5rem;
+  background: black;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
-    .moviecard__container:hover{
-        transform:translateY(-10px);
-    }
+.moviecard__container:hover {
+  transform: translateY(-10px);
+}
 
 .moviecard__container__info {
-    margin-left: 0.5rem;
-    position: relative;
+  margin-left: 0.5rem;
+  position: relative;
 }
 
-.moviecard__container__info > h3{
-    margin-top:0.5rem;
-    max-width:155px;
-    text-align:left;
+.moviecard__container__info > h3 {
+  margin-top: 0.5rem;
+  max-width: 155px;
+  text-align: left;
 }
 
 .moviecard__note {
-    position: absolute;
-    top: 0;
-    color: rgb(255, 168, 1);
-    right: 0.5rem;
-    background: #4d5053;
-    border: 1px solid #c2b9b9;
-    text-align: center;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    line-height: 30px;
+  position: absolute;
+  top: 0;
+  color: rgb(255, 168, 1);
+  right: 0.5rem;
+  background: #4d5053;
+  border: 1px solid #c2b9b9;
+  text-align: center;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  line-height: 30px;
+}
+
+.noimage {
+  width: 200px;
+  height: 300px;
 }
