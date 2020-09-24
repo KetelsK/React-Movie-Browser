@@ -11,3 +11,4 @@ Fetching data from the movieDB API and display it.
 Routes, passing data through url parameters.  
 Callbacks to get data from child to parent component.  
 componentDidMount function to wait for the API request to finish before rendering the component.
+componentWillReceiveprops function to re-render the component when receiving a new props.
