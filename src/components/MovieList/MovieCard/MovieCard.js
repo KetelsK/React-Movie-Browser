@@ -8,8 +8,8 @@ function MovieCard(props) {
     history.push(`/moviedetails/${event.currentTarget.id}`);
   }
   const genres = props.genres.map((genre, i) => {
-    if (i === props.genres.length - 1) return <label>{genre}</label>;
-    else return <label>{genre},&nbsp; </label>;
+    if (i === props.genres.length - 1) return <label key={i}>{genre}</label>;
+    else return <label key={i}>{genre},&nbsp; </label>;
   });
 
   const id = props.id;

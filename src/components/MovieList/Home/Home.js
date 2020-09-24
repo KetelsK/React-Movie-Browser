@@ -3,6 +3,7 @@ import "./Home.css";
 import MovieCard from "../MovieCard/MovieCard";
 import ButtonMovieFilter from "../ButtonMovieFilter/ButtonMovieFilter";
 import Pagination from "react-bootstrap-4-pagination";
+import BackgroundImage from "../../Layout/BackgroundImage";
 
 export class Home extends React.Component {
   static displayName = Home.name;
@@ -14,7 +15,8 @@ export class Home extends React.Component {
     isLoadingMovie: true,
     isLoadingGenre: true,
     page: 1,
-    totalPages: ""
+    totalPages: "",
+    backgroundImage: ""
   };
 
   fetchMovies = (filter, page) => {
@@ -34,7 +36,8 @@ export class Home extends React.Component {
         this.setState({
           movieList: data,
           totalPages: data.total_pages,
-          isLoadingMovie: false
+          isLoadingMovie: false,
+          backgroundImage: data.results[0].backdrop_path
         });
       });
 
@@ -76,10 +79,8 @@ export class Home extends React.Component {
     document.body.style.background = " background-color: #000000";
     document.body.style.backgroundImage =
       "linear-gradient(315deg, #000 0%, #2f2b2b 74%)";
-
     let genres = [];
     const filter = this.state.filter;
-
     const movies = this.state.isLoadingMovie
       ? ""
       : this.state.movieList.results.map(movie => {
@@ -107,6 +108,7 @@ export class Home extends React.Component {
 
     return (
       <div>
+        <BackgroundImage src={this.state.backgroundImage} />
         <ButtonMovieFilter
           selectedOption={filter}
           data={{
@@ -116,7 +118,7 @@ export class Home extends React.Component {
 
         <div className="movies__container">{movies}</div>
         <Pagination
-          totalPages={this.state.totalPages}
+          totalPages={parseInt(this.state.totalPages, 10)}
           currentPage={this.state.page}
           onClick={this.setPage}
           prevNext
