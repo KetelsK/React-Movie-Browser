@@ -1,4 +1,5 @@
 import React from "react";
+import BackgroundImage from "../../Layout/BackgroundImage";
 import MovieCredits from "./MovieCredits/MovieCredits";
 import "./MovieDetails.css";
 import MovieInfo from "./MovieInfo/MovieInfo";
@@ -31,7 +32,6 @@ class MovieDetails extends React.Component {
     )
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         this.setState({
           title: data.title,
           overview: data.overview,
@@ -58,7 +58,6 @@ class MovieDetails extends React.Component {
       .then(response => response.json())
       .then(data => {
         this.setState({ cast: data.cast, isCastReady: true });
-        console.log(data.cast);
       });
   };
 
@@ -68,12 +67,6 @@ class MovieDetails extends React.Component {
   }
 
   render() {
-    document.body.style.backgroundSize = "cover";
-    document.body.style.backgroundImage =
-      "url(https://image.tmdb.org/t/p/original/" +
-      this.state.backdrop_path +
-      ")";
-    //console.log(this.state.cast.map(cast => cast.name));
     const movieCredits = this.state.cast.map(cast => {
       return (
         <MovieCredits
@@ -86,6 +79,7 @@ class MovieDetails extends React.Component {
     });
     return (
       <div className="movie-details__container">
+        <BackgroundImage src={this.state.backdrop_path} />
         <MovieInfo
           title={this.state.title}
           overview={this.state.overview}
