@@ -63,13 +63,12 @@ export class Home extends React.Component {
         "https://api.themoviedb.org/3/search/movie?api_key=" +
           apiKey +
           "&language=en-US&query=" +
-          this.state.movieToSearch +
-          "&page=" +
-          (page ? page : "1") +
-          "&include_adult=false"
+          this.props.match.params.movieToSearch +
+          "&page=1&include_adult=false"
       )
         .then(response => response.json())
         .then(data => {
+          console.log(data);
           this.setState({
             movieList: data,
             totalPages: data.total_pages,
@@ -101,8 +100,9 @@ export class Home extends React.Component {
   };
 
   componentWillReceiveProps(props) {
-    this.setState({ movieToSearch: props.match.params.movieToSearch });
-    this.fetchMovies(this.state.filter, this.state.page);
+    this.setState({ movieToSearch: props.match.params.movieToSearch }, () =>
+      this.fetchMovies(this.state.filter, this.state.page)
+    );
   }
 
   render() {
