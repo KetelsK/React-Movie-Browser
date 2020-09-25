@@ -38,8 +38,8 @@
 .movie-details__topcontainer__bottomdetails {
   margin-left: 0px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
+  flex-wrap: wrap;
   background: black;
   padding: 4px 8px;
 }
