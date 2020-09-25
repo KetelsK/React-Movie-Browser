@@ -88,6 +88,7 @@ class MovieDetails extends React.Component {
           release_date={this.state.release_date}
           runtime={this.state.runtime}
           budget={this.state.budget}
+          vote_average={this.state.vote_average}
         />
         <div className="movie-credits__container">
           <p className="movie-credits__actors">Actors</p>
