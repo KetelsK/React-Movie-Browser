@@ -14,6 +14,7 @@ function MovieInfo(props) {
 
         <div className="d-flex flex-column title-overview-container">
           <h1>{props.title}</h1>
+          <label className="moviecard__note mt-2">{props.vote_average}</label>
           <p className="movie-details__overview">{props.overview}</p>
           <p className="movie-details-genre__p">
             Genres:{" "}

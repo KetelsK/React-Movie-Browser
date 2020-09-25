@@ -6,6 +6,7 @@
 .title-overview-container {
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 .title-overview-container > h1 {
@@ -38,11 +39,16 @@
   margin-left: 0px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   background: black;
   padding: 4px 8px;
 }
 
 @media screen and (max-width: 768px) {
+  .movie-details-img {
+    display: flex;
+    justify-content: center;
+  }
   .movie-details-img > img {
     width: 200px !important;
   }

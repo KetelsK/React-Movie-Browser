@@ -24,12 +24,12 @@
   border: 1px solid white !important;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 768px) {
   .page-item {
     margin-right: 0px !important;
   }
 
   .page-link {
-    padding: 0.4rem 1rem;
+    padding: 0.4rem 1rem !important;
   }
 }

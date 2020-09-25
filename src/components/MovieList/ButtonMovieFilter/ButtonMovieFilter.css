@@ -5,5 +5,7 @@
 @media screen and (max-width: 760px) {
   .button-filter__container {
     margin-top: calc(60px + 5rem);
+    display: flex;
+    justify-content: center;
   }
 }
