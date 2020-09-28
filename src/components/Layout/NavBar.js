@@ -24,10 +24,10 @@ function Header() {
       <Container className="header__container">
         <div className="icon-title__container">
           <div className="d-flex align-items-center" onClick={goHome}>
-            <VideocamIcon style={styles.largeIcon} />
+            <VideocamIcon className="header__icon" />
             <h1>React Movie</h1>
           </div>
-          <SearchMovie />
+          <SearchMovie className="ml-3 mb-sm-0" />
         </div>
       </Container>
     </div>

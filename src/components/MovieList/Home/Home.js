@@ -97,12 +97,14 @@ export class Home extends React.Component {
   setPage = event => {
     this.setState({ page: event });
     this.fetchMovies(this.state.filter ? this.state.filter : "popular", event);
+    window.scrollTo(0, 0);
   };
 
   componentWillReceiveProps(props) {
-    this.setState({ movieToSearch: props.match.params.movieToSearch }, () =>
-      this.fetchMovies(this.state.filter, this.state.page)
-    );
+    this.setState({ movieToSearch: props.match.params.movieToSearch }, () => {
+      this.fetchMovies(this.state.filter, this.state.page);
+      window.scrollTo(0, 0);
+    });
   }
 
   render() {

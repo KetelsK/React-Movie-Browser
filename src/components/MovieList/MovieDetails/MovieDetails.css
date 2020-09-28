@@ -19,9 +19,3 @@
   content: "";
   flex: auto;
 }
-
-@media screen and (max-width: 768px) {
-  .movie-details__container {
-    margin-top: calc(60px + 5rem);
-  }
-}
