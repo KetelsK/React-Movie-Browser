@@ -158,7 +158,6 @@ export class Home extends React.Component {
           prevNext
           size="lg"
         />
-        {process.env.REACT_APP_FIREBASE_KEY}
       </div>
     );
   }
