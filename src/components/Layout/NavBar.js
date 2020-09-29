@@ -4,6 +4,7 @@ import { Container } from "reactstrap";
 import VideocamIcon from "@material-ui/icons/Videocam";
 import { useHistory } from "react-router-dom";
 import SearchMovie from "./SearchMovie/SearchMovie";
+import SigninButton from "./SigninButton/SigninButton";
 
 function Header() {
   let history = useHistory();
@@ -28,6 +29,7 @@ function Header() {
             <h1>React Movie</h1>
           </div>
           <SearchMovie className="ml-3 mb-sm-0" />
+          <SigninButton />
         </div>
       </Container>
     </div>

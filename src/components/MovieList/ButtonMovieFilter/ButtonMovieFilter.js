@@ -20,7 +20,7 @@ class ButtonMovieFilter extends React.Component {
 
   render() {
     return (
-      <div className="button-filter__container">
+      <div>
         <ButtonGroup>
           <Button
             value="popular"

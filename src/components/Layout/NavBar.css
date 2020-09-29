@@ -24,6 +24,7 @@
   flex-wrap: wrap;
   align-items: center;
   cursor: pointer;
+  width: 100%;
 }
 
 .header__icon {
