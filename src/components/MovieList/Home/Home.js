@@ -9,7 +9,6 @@ export class Home extends React.Component {
   static displayName = Home.name;
   state = {
     filter: "popular",
-    apiKey: "44410dd0833b353ce85b8a594a2ec589",
     movieList: {},
     genres: {},
     isLoadingMovie: true,
@@ -21,7 +20,6 @@ export class Home extends React.Component {
   };
 
   fetchMovies = (filter, page) => {
-    const apiKey = this.state.apiKey;
     this.setState({
       isLoadingMovie: true,
       isLoadingGenre: true
@@ -30,7 +28,7 @@ export class Home extends React.Component {
     //fetch movie genres
     fetch(
       "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
-        apiKey +
+        process.env.REACT_APP_TMDB_KEY +
         "&language=en-US"
     )
       .then(response => response.json())
@@ -46,7 +44,7 @@ export class Home extends React.Component {
         "https://api.themoviedb.org/3/movie/" +
           filter +
           "?api_key=" +
-          apiKey +
+          process.env.REACT_APP_TMDB_KEY +
           "&page=" +
           (page ? page : "1")
       )
@@ -64,7 +62,7 @@ export class Home extends React.Component {
     else {
       fetch(
         "https://api.themoviedb.org/3/search/movie?api_key=" +
-          apiKey +
+          process.env.REACT_APP_TMDB_KEY +
           "&language=en-US&query=" +
           this.props.match.params.movieToSearch +
           "&page=1&include_adult=false"
