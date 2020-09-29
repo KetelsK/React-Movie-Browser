@@ -7,7 +7,6 @@ import MovieRecommendations from "./MovieRecommendations/MovieRecommendations";
 
 class MovieDetails extends React.Component {
   state = {
-    apiKey: "44410dd0833b353ce85b8a594a2ec589",
     id: this.props.match.params.id,
     title: "",
     overview: "",
@@ -30,7 +29,7 @@ class MovieDetails extends React.Component {
       "https://api.themoviedb.org/3/movie/" +
         this.state.id +
         "?api_key=" +
-        this.state.apiKey
+        process.env.REACT_APP_TMDB_KEY
     )
       .then(response => response.json())
       .then(data => {
@@ -55,7 +54,7 @@ class MovieDetails extends React.Component {
       "https://api.themoviedb.org/3/movie/" +
         this.state.id +
         "/credits?api_key=" +
-        this.state.apiKey
+        process.env.REACT_APP_TMDB_KEY
     )
       .then(response => response.json())
       .then(data => {

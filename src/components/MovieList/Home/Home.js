@@ -22,8 +22,11 @@ export class Home extends React.Component {
 
   fetchMovies = (filter, page) => {
     const apiKey = this.state.apiKey;
-    this.state.isLoadingMovie = true;
-    this.state.isLoadingGenre = true;
+    this.setState({
+      isLoadingMovie: true,
+      isLoadingGenre: true
+    });
+
     //fetch movie genres
     fetch(
       "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
@@ -157,6 +160,7 @@ export class Home extends React.Component {
           prevNext
           size="lg"
         />
+        {process.env.REACT_APP_FIREBASE_KEY}
       </div>
     );
   }

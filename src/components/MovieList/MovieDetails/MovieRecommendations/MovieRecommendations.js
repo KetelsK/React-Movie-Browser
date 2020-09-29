@@ -5,7 +5,6 @@ import "./MovieRecommendations.css";
 
 class MovieRecommendations extends React.Component {
   state = {
-    apiKey: "44410dd0833b353ce85b8a594a2ec589",
     recommendationsList: {},
     isLoadingRecommendations: true,
     isLoadingGenre: true
@@ -15,7 +14,7 @@ class MovieRecommendations extends React.Component {
     //fetch movie genres
     fetch(
       "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
-        this.state.apiKey +
+        process.env.REACT_APP_TMDB_KEY +
         "&language=en-US"
     )
       .then(response => response.json())
@@ -29,7 +28,7 @@ class MovieRecommendations extends React.Component {
       "https://api.themoviedb.org/3/movie/" +
         this.props.idMovie +
         "/recommendations?api_key=" +
-        this.state.apiKey +
+        process.env.REACT_APP_TMDB_KEY +
         "&language=en-US&page=1"
     )
       .then(response => response.json())

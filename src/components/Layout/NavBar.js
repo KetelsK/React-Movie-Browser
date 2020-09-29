@@ -1,13 +1,22 @@
-﻿import React from "react";
+﻿import React, { useEffect, useState } from "react";
 import "./NavBar.css";
 import { Container } from "reactstrap";
 import VideocamIcon from "@material-ui/icons/Videocam";
 import { useHistory } from "react-router-dom";
 import SearchMovie from "./SearchMovie/SearchMovie";
-import SigninButton from "./SigninButton/SigninButton";
+import LogInButton from "./LogInButton/LogInButton";
+import LogOutButton from "./LogOutButton/LogOutButton";
+import Firebase from "../Authentication/Firebase/Firebase";
 
 function Header() {
+  const [firebaseInitialized, setFirebaseInitialized] = useState(false);
   let history = useHistory();
+
+  useEffect(() => {
+    Firebase.isInitialized().then(val => {
+      setFirebaseInitialized(val);
+    });
+  });
 
   function goHome() {
     history.push("/");
@@ -20,6 +29,7 @@ function Header() {
       color: "#ffa801"
     }
   };
+
   return (
     <div className="header">
       <Container className="header__container">
@@ -29,7 +39,7 @@ function Header() {
             <h1>React Movie</h1>
           </div>
           <SearchMovie className="ml-3 mb-sm-0" />
-          <SigninButton />
+          {firebaseInitialized ? <LogOutButton /> : <LogInButton />}
         </div>
       </Container>
     </div>
