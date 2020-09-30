@@ -7,7 +7,7 @@ function MovieInfo(props) {
       <div className="d-flex flex-row movie-details__topcontainer">
         <div className="movie-details-img">
           <img
-            src={`https://image.tmdb.org/t/p/w300${props.poster_path}`}
+            src={`http://image.tmdb.org/t/p/w300${props.poster_path}`}
             alt=""
           />
         </div>

@@ -8,7 +8,7 @@ function MovieCredits(props) {
       {props.profile_path ? (
         <img
           alt="actor"
-          src={`https://image.tmdb.org/t/p/w185${props.profile_path}`}
+          src={`http://image.tmdb.org/t/p/w185${props.profile_path}`}
         />
       ) : (
         <img alt="no actor" src={noimage} />

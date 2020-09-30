@@ -16,7 +16,7 @@ export default function SearchMovie() {
   }
 
   return (
-    <div className="d-flex align-items-center form-group has-search ml-3 mb-0">
+    <div className="d-flex align-items-center form-group has-search ml-sm-0 ml-md-3 mb-0">
       <input
         type="text"
         className="form-control"

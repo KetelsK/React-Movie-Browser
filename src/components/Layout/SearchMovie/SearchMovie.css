@@ -18,3 +18,9 @@
   pointer-events: none;
   color: #aaa;
 }
+
+@media screen and (max-width: 768px) {
+  .has-search .form-control {
+    padding-right: 0rem !important;
+  }
+}

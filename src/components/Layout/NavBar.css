@@ -38,4 +38,9 @@
   h1 {
     font-size: 0rem;
   }
+
+  .header__container {
+    padding-left: 0px !important;
+    padding-right: 0.5rem !important;
+  }
 }
