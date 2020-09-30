@@ -10,9 +10,9 @@ props/state.
 Fetching data from the movieDB API and display it.  
 Routes, passing data through url parameters.  
 Callbacks to get data from child to parent component.  
-componentDidMount function to wait for the API request to finish before rendering the component.
-componentWillReceiveprops function to re-render the component when receiving a new props.
-Deploying to Heroku and Firebase.
-Using a Firebase database.
-Register/Log In system.
-Using environment variables for things like API key.
+componentDidMount function to wait for the API request to finish before rendering the component.  
+componentWillReceiveprops function to re-render the component when receiving a new props.  
+Deploying to Heroku and Firebase.  
+Using a Firebase database.  
+Register/Log In system.  
+Using environment variables for things like API key.  
