@@ -1,6 +1,7 @@
 # React Movie Browser
 
-A Movie Browser made with ReactJS using the movieDB API.
+A Movie Browser made with ReactJS using the movieDB API.  
+You can try it at https://reactmovieketels.web.app/
 
 # What I learnt:
 
