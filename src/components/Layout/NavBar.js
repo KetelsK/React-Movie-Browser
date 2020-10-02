@@ -10,11 +10,14 @@ import Firebase from "../Authentication/Firebase/Firebase";
 
 function Header() {
   const [firebaseInitialized, setFirebaseInitialized] = useState(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+
   let history = useHistory();
 
   useEffect(() => {
     Firebase.isInitialized().then(val => {
       setFirebaseInitialized(val);
+      setIsUserLoggedIn(Firebase.auth.currentUser);
     });
   });
 
@@ -22,13 +25,9 @@ function Header() {
     history.push("/");
   }
 
-  const styles = {
-    largeIcon: {
-      width: 60,
-      height: 60,
-      color: "#ffa801"
-    }
-  };
+  function goToWatchList() {
+    history.push("/watchlist");
+  }
 
   return (
     <div className="header">
@@ -39,6 +38,17 @@ function Header() {
             <h1>React Movie</h1>
           </div>
           <SearchMovie className="ml-3 mb-sm-0" />
+          {isUserLoggedIn ? (
+            <button
+              className="btn btn-danger ml-2 btn-my-watchlist"
+              onClick={goToWatchList}
+            >
+              My Watchlist
+            </button>
+          ) : (
+            ""
+          )}
+
           {firebaseInitialized ? <LogOutButton /> : <LogInButton />}
         </div>
       </Container>

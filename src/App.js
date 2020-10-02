@@ -6,6 +6,7 @@ import { Home } from "./components/MovieList/Home/Home";
 import MovieDetails from "./components/MovieList/MovieDetails/MovieDetails";
 import Register from "./components/Authentication/Register/Register";
 import LogIn from "./components/Authentication/LogIn/LogIn";
+import Watchlist from "./components/Watchlist/Watchlist";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/moviedetails/:id" component={MovieDetails} />
         <Route path="/login" component={LogIn} />
         <Route path="/register" component={Register} />
+        <Route path="/watchlist" component={Watchlist} />
       </Layout>
     </BrowserRouter>
   );

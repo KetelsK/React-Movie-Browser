@@ -44,6 +44,10 @@
   padding: 4px 8px;
 }
 
+.add-watchList-btn {
+  width: fit-content;
+}
+
 @media screen and (max-width: 768px) {
   .movie-details-img {
     display: flex;

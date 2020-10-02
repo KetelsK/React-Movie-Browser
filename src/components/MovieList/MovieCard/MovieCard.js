@@ -8,6 +8,7 @@ function MovieCard(props) {
   function showDetails(event) {
     history.push(`/moviedetails/${event.currentTarget.id}`);
   }
+
   const genres = props.genres.map((genre, i) => {
     if (i === props.genres.length - 1) return <label key={i}>{genre}</label>;
     else return <label key={i}>{genre},&nbsp; </label>;
@@ -17,7 +18,7 @@ function MovieCard(props) {
   return (
     <div id={id} className="moviecard__container" onClick={showDetails}>
       {props.imgSrc ? (
-        <img alt="" src={`http://image.tmdb.org/t/p/w300${props.imgSrc}`} />
+        <img alt="" src={`https://image.tmdb.org/t/p/w300${props.imgSrc}`} />
       ) : (
         <img className="noimage" alt="" src={noimage} />
       )}

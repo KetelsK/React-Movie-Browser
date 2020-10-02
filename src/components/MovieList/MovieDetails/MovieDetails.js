@@ -92,6 +92,7 @@ class MovieDetails extends React.Component {
       <div className="movie-details__container">
         <BackgroundImage src={this.state.backdrop_path} />
         <MovieInfo
+          id={this.state.id}
           title={this.state.title}
           overview={this.state.overview}
           poster_path={this.state.poster_path}

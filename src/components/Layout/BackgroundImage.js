@@ -6,7 +6,7 @@ export default function BackgroundImage(props) {
       className="background"
       style={{
         backgroundImage:
-          'url("http://image.tmdb.org/t/p/original' + props.src + '")'
+          'url("https://image.tmdb.org/t/p/original' + props.src + '")'
       }}
     ></div>
   );

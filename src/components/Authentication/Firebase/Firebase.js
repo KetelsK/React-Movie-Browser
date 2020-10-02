@@ -1,4 +1,5 @@
 import app from "firebase/app";
+import firebase from "firebase";
 import "firebase/auth";
 import "firebase/firebase-firestore";
 
@@ -18,6 +19,7 @@ class Firebase {
     app.initializeApp(config);
     this.auth = app.auth();
     this.db = app.firestore;
+    this.database = app.database();
   }
 
   login(email, password) {
@@ -30,6 +32,24 @@ class Firebase {
 
   async register(email, password) {
     await this.auth.createUserWithEmailAndPassword(email, password);
+  }
+
+  async addToWatchList(movie) {
+    await this.database.ref("WatchList").push(movie);
+  }
+
+  getMovieList() {
+    const moviesRef = this.database.ref("WatchList");
+    const movies = [];
+    moviesRef.on("value", data => {
+      const list = data.val();
+      for (let id in list) {
+        if (this.auth.currentUser.uid === list[id].userId) {
+          movies.push(list[id]);
+        }
+      }
+    });
+    return movies;
   }
 
   isInitialized() {
