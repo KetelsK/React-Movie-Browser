@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import firebase from "../../Authentication/Firebase/Firebase";
 import Firebase from "../../Authentication/Firebase/Firebase";
 import "./LogOutButton.css";
 
@@ -8,7 +9,8 @@ const SigninButton = () => {
 
   async function handleLogOut() {
     try {
-      await Firebase.logout();
+      firebase.auth().signOut();
+      history.push("/#");
       window.location.reload();
     } catch (error) {
       console.log(error.message);

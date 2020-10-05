@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+﻿import React, { useContext, useEffect, useState } from "react";
 import "./NavBar.css";
 import { Container } from "reactstrap";
 import VideocamIcon from "@material-ui/icons/Videocam";
@@ -6,20 +6,14 @@ import { useHistory } from "react-router-dom";
 import SearchMovie from "./SearchMovie/SearchMovie";
 import LogInButton from "./LogInButton/LogInButton";
 import LogOutButton from "./LogOutButton/LogOutButton";
-import Firebase from "../Authentication/Firebase/Firebase";
+import firebase from "../Authentication/Firebase/Firebase";
+import { AuthContext } from "../Authentication/Auth";
 
 function Header() {
-  const [firebaseInitialized, setFirebaseInitialized] = useState(false);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const { currentUser } = useContext(AuthContext);
 
   let history = useHistory();
-
-  useEffect(() => {
-    Firebase.isInitialized().then(val => {
-      setFirebaseInitialized(val);
-      setIsUserLoggedIn(Firebase.auth.currentUser);
-    });
-  });
 
   function goHome() {
     history.push("/");
@@ -38,7 +32,7 @@ function Header() {
             <h1>React Movie</h1>
           </div>
           <SearchMovie className="ml-3 mb-sm-0" />
-          {isUserLoggedIn ? (
+          {currentUser ? (
             <button
               className="btn btn-danger ml-2 btn-my-watchlist"
               onClick={goToWatchList}
@@ -49,7 +43,7 @@ function Header() {
             ""
           )}
 
-          {firebaseInitialized ? <LogOutButton /> : <LogInButton />}
+          {currentUser ? <LogOutButton /> : <LogInButton />}
         </div>
       </Container>
     </div>

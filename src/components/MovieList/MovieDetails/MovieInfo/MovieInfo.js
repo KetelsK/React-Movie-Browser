@@ -1,19 +1,38 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./MovieInfo.css";
 import firebase from "../../../Authentication/Firebase/Firebase";
+import { AuthContext } from "../../../Authentication/Auth";
 
 function MovieInfo(props) {
-  function addToWatchList(event) {
-    if (firebase.auth.currentUser) {
-      const movie = {
+  const { currentUser } = useContext(AuthContext);
+
+  async function addToWatchList(event) {
+    if (currentUser) {
+      const movieToAdd = {
         id: event.target.id,
         title: props.title,
         note: props.vote_average,
         genres: props.genres,
         imgSrc: props.poster_path,
-        userId: firebase.auth.currentUser.uid
+        userId: currentUser.uid
       };
-      firebase.addToWatchList(movie);
+      const db = firebase.firestore();
+      const data = await db.collection("watchlist").get();
+      let isAlreadyInWatchList = false;
+      const watchlist = data.docs.map(movie => {
+        if (
+          movie.data().id === movieToAdd.id &&
+          movie.data().userId === currentUser.uid
+        ) {
+          isAlreadyInWatchList = true;
+        }
+      });
+      //Check if not already in watchlist
+      if (!isAlreadyInWatchList) {
+        db.collection("watchlist").add(movieToAdd);
+      } else {
+        alert("This movie is already in your Watchlist !");
+      }
     } else {
       alert("You must be loggin in to add a movie to your Watchlist !");
     }

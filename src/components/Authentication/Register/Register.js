@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Register.css";
 import "../../Layout/LogInButton/LogInButton.css";
-import Firebase from "../Firebase/Firebase";
+import firebase from "../Firebase/Firebase";
 import { useHistory } from "react-router-dom";
 
 const Register = () => {
@@ -12,7 +12,7 @@ const Register = () => {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      await Firebase.register(email, password);
+      await firebase.auth().createUserWithEmailAndPassword(email, password);
       history.push("/login");
       console.log("ok");
     } catch (error) {

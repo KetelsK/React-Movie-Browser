@@ -1,4 +1,6 @@
 ﻿.moviecard__container {
+  display: flex;
+  flex-direction: column;
   width: 200px;
   margin-bottom: 1.5rem;
   background: black;
@@ -24,7 +26,7 @@
 }
 .moviecard__note {
   position: absolute;
-  top: 0;
+  top: 0.5rem;
   color: rgb(255, 168, 1);
   right: 0.5rem;
   background: #4d5053;
@@ -39,6 +41,33 @@
 .noimage {
   width: 200px;
   height: 300px;
+}
+
+.remove-btn__container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.remove-btn {
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  background: grey;
+  border-color: rgb(199, 199, 199);
+}
+
+.remove-btn:hover {
+  background: rgb(158, 157, 157);
+  border-color: rgb(158, 157, 157);
+}
+
+.remove-btn:focus {
+  outline: 0;
+  background: rgb(108, 108, 108);
+  box-shadow: 0 0 0 0.2rem rgba(108, 108, 108, 0.5);
+}
+
+.filler {
+  flex: 1;
 }
 
 @media screen and (max-width: 576px) {
