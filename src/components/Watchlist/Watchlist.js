@@ -7,8 +7,10 @@ import BackgroundImage from "../Layout/BackgroundImage";
 
 function Watchlist() {
   const [movieList, setMovieList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const { currentUser } = useContext(AuthContext);
+
   useEffect(() => {
     const fetchData = async () => {
       const db = firebase.firestore();
@@ -20,6 +22,7 @@ function Watchlist() {
         }
       });
       setMovieList(list);
+      setIsLoading(false);
     };
     if (currentUser) {
       fetchData();
@@ -41,7 +44,11 @@ function Watchlist() {
             : "movies__containerminusfive"
         }
       >
-        {movieList.length === 0 ? "Your Watchlist is empty" : ""}
+        {isLoading
+          ? "Loading..."
+          : movieList.length === 0
+          ? "Your Watchlist is empty"
+          : ""}
         {movieList.map(movie => {
           const genres = [];
           movie.genres.map(genre => {

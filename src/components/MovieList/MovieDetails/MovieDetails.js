@@ -65,6 +65,7 @@ class MovieDetails extends React.Component {
   componentDidMount() {
     this.fetchMovieDetails();
     this.fetchMovieCredits();
+    window.scrollTo(0, 0);
   }
 
   componentWillReceiveProps(props) {
