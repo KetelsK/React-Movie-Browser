@@ -16,10 +16,3 @@
   background: #d18d0f;
   box-shadow: 0 0 0 0.2rem rgba(224, 100, 18, 0.5);
 }
-
-@media screen and (max-width: 576px) {
-  .btn-danger {
-    font-size: 12px;
-    padding: 6px 6px;
-  }
-}

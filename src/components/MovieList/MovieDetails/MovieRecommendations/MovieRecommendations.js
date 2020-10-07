@@ -33,7 +33,6 @@ class MovieRecommendations extends React.Component {
     )
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         this.setState({
           recommendationsList: data.results,
           isLoadingRecommendations: false

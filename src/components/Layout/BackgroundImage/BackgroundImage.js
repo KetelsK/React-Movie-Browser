@@ -1,5 +1,6 @@
 import React from "react";
 import "./BackgroundImage.css";
+
 export default function BackgroundImage(props) {
   return (
     <div

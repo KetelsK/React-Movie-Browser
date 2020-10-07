@@ -3,7 +3,7 @@ import "./Watchlist.css";
 import firebase from "../Authentication/Firebase/Firebase";
 import MovieCard from "../MovieList/MovieCard/MovieCard";
 import { AuthContext } from "../Authentication/Auth";
-import BackgroundImage from "../Layout/BackgroundImage";
+import BackgroundImage from "../Layout/BackgroundImage/BackgroundImage";
 
 function Watchlist() {
   const [movieList, setMovieList] = useState([]);

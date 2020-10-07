@@ -3,7 +3,7 @@ import "./Home.css";
 import MovieCard from "../MovieCard/MovieCard";
 import ButtonMovieFilter from "../ButtonMovieFilter/ButtonMovieFilter";
 import Pagination from "react-bootstrap-4-pagination";
-import BackgroundImage from "../../Layout/BackgroundImage";
+import BackgroundImage from "../../Layout/BackgroundImage/BackgroundImage";
 
 export class Home extends React.Component {
   static displayName = Home.name;

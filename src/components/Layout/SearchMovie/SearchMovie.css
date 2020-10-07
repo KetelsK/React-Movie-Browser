@@ -19,8 +19,14 @@
   color: #aaa;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   .has-search .form-control {
     padding-right: 0rem !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .has-search .form-control {
+    margin-left: 0.5rem;
   }
 }

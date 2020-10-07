@@ -1,5 +1,5 @@
 import React from "react";
-import BackgroundImage from "../../Layout/BackgroundImage";
+import BackgroundImage from "../../Layout/BackgroundImage/BackgroundImage";
 import MovieCredits from "./MovieCredits/MovieCredits";
 import "./MovieDetails.css";
 import MovieInfo from "./MovieInfo/MovieInfo";
